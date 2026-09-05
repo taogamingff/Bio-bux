@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#05070d">
+<meta name="description" content="BUX BIO - Thông tin & liên kết">
+<title>BUX BIO Free Fire VN</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+    font-family:"Be Vietnam Pro",sans-serif;
+    background:#05070d;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    overflow:hidden;
+    background:#05070d;
+}
+
+.bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+
+    background-position:center center;
+    background-size:cover;
+    background-repeat:no-repeat;
+
+    opacity:0;
+    transform:scale(1.06);
+
+    transition:
+        opacity 1.4s ease,
+        transform 7s ease;
+}
+
+.bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(3,5,12,.28),
+            rgba(3,5,12,.58),
+            rgba(3,5,12,.86)
+        );
+}
+
+.bg.active{
+    opacity:1;
+    transform:scale(1);
+}
+
+.bg1{
+    background-image:url(
+        "https://cdn.wildflamestudio.com/common/web_event/official2.ff.garena.all/20266/361b072124e0e479833da4e10834916b.jpg"
+    );
+}
+
+.bg2{
+    background-image:url(
+        "https://cdn.wildflamestudio.com/common/web_event/official2.ff.garena.all/img/20228/b274c2a500d160d8e3247679e9b238f9.jpg"
+    );
+}
+
+.bg3{
+    background-image:url(
+        "https://cdn.wildflamestudio.com/common/web_event/official2.ff.garena.all/20264/417b1a4c151c7fcf2afb73afeaaefa16.jpg"
+    );
+}
+
+
+/* =====================================================
+   PARTICLES
+===================================================== */
+
+.particles{
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.particle{
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+
+    background:rgba(255,255,255,.7);
+
+    box-shadow:
+        0 0 12px rgba(255,255,255,.55);
+
+    animation:
+        floatParticle linear infinite;
+}
+
+@keyframes floatParticle{
+
+    0%{
+        transform:
+            translateY(110vh)
+            scale(.3);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.8;
+    }
+
+    85%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:
+            translateY(-15vh)
+            scale(1);
+        opacity:0;
+    }
+
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loader{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(45,52,80,.38),
+            rgba(3,5,12,.98) 70%
+        );
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+}
+
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+
+/* =====================================================
+   LOADING LOGO
+===================================================== */
+
+.loader-logo{
+    width:145px;
+    height:145px;
+
+    padding:5px;
+
+    display:block;
+
+    border-radius:50%;
+
+    object-fit:contain;
+    object-position:center center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.98),
+            rgba(255,205,80,.72),
+            rgba(255,255,255,.90)
+        );
+
+    border:
+        2px solid rgba(255,255,255,.88);
+
+    box-shadow:
+        0 0 0 7px rgba(255,255,255,.045),
+        0 0 35px rgba(255,205,80,.25),
+        0 18px 55px rgba(0,0,0,.60);
+
+    animation:
+        loaderLogo 3s ease-in-out infinite;
+}
+
+@keyframes loaderLogo{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50%{
+        transform:
+            translateY(-7px)
+            scale(1.025);
+    }
+
+}
+
+
+/* =====================================================
+   LOADING TITLE
+===================================================== */
+
+.loading-title{
+    margin-top:25px;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:28px;
+    font-weight:900;
+
+    letter-spacing:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ffd76a,
+            #fff
+        );
+
+    background-size:200% auto;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    animation:
+        shineText 2s linear infinite;
+}
+
+@keyframes shineText{
+
+    to{
+        background-position:200% center;
+    }
+
+}
+
+.loading-status{
+    margin-top:9px;
+
+    font-size:12px;
+
+    color:rgba(255,255,255,.62);
+
+    letter-spacing:1px;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-wrap{
+    width:min(300px,75vw);
+    margin-top:22px;
+}
+
+.progress-bar{
+    width:100%;
+    height:6px;
+
+    overflow:hidden;
+
+    border-radius:99px;
+
+    background:rgba(255,255,255,.11);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+}
+
+.progress{
+    width:1%;
+    height:100%;
+
+    border-radius:99px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ffd45c
+        );
+
+    box-shadow:
+        0 0 15px rgba(255,205,80,.7);
+
+    transition:
+        width .08s linear;
+}
+
+.percent{
+    margin-top:10px;
+
+    text-align:center;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:13px;
+
+    color:#fff;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main{
+    position:relative;
+    z-index:2;
+
+    min-height:100vh;
+
+    padding:
+        45px
+        16px
+        35px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+}
+
+.bio{
+    width:min(520px,100%);
+
+    padding:
+        28px
+        20px
+        22px;
+
+    background:
+        rgba(8,11,22,.62);
+
+    border:
+        1px solid rgba(255,255,255,.14);
+
+    border-radius:30px;
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.08);
+
+    animation:
+        cardIn .8s ease both;
+}
+
+@keyframes cardIn{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(25px)
+            scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   LOGO CHÍNH - TRÒN
+===================================================== */
+
+.logo-box{
+    position:relative;
+
+    width:170px;
+    height:170px;
+
+    margin:
+        0
+        auto
+        22px;
+
+    padding:6px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.98),
+            rgba(255,205,80,.72),
+            rgba(255,255,255,.88)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.75);
+
+    box-shadow:
+        0 0 0 6px rgba(255,255,255,.045),
+        0 0 32px rgba(255,205,80,.22),
+        0 18px 50px rgba(0,0,0,.58);
+
+    overflow:hidden;
+
+    transform:translateZ(0);
+
+    animation:
+        logoFloat 4s ease-in-out infinite;
+}
+
+.logo-box::before{
+    content:"";
+
+    position:absolute;
+    inset:3px;
+
+    border:
+        1px solid rgba(255,255,255,.78);
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:3;
+}
+
+.profile-logo{
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    border-radius:50%;
+
+    object-fit:contain;
+    object-position:center center;
+
+    background:#10131b;
+
+    box-shadow:
+        inset 0 0 18px rgba(0,0,0,.25);
+
+    transition:
+        transform .4s ease,
+        filter .4s ease;
+}
+
+.logo-box:hover .profile-logo{
+    transform:scale(1.035);
+
+    filter:
+        brightness(1.06)
+        contrast(1.02);
+}
+
+@keyframes logoFloat{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotateX(0deg)
+            rotateY(0deg);
+    }
+
+    50%{
+        transform:
+            translateY(-5px)
+            rotateX(1deg)
+            rotateY(-1deg);
+    }
+
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.bio-title{
+    text-align:center;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:31px;
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ffe083,
+            #fff
+        );
+
+    background-size:200% auto;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    animation:
+        shineText 3s linear infinite;
+}
+
+.bio-subtitle{
+    margin-top:7px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    color:
+        rgba(255,255,255,.58);
+
+    letter-spacing:1px;
+}
+
+
+/* =====================================================
+   GAME INFO
+===================================================== */
+
+.game-info{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:10px;
+
+    margin-top:22px;
+}
+
+.info-card{
+    min-width:0;
+
+    padding:
+        14px
+        10px;
+
+    border-radius:17px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.09);
+
+    text-align:center;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease;
+}
+
+.info-card:hover{
+    transform:translateY(-3px);
+
+    background:
+        rgba(255,255,255,.085);
+
+    border-color:
+        rgba(255,255,255,.18);
+}
+
+.info-label{
+    font-size:10px;
+
+    font-weight:700;
+
+    color:
+        rgba(255,255,255,.48);
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+}
+
+.info-value{
+    margin-top:5px;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    color:#fff;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+
+/* =====================================================
+   DANH SÁCH
+===================================================== */
+
+.separator{
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin:
+        25px
+        0
+        15px;
+}
+
+.separator::before,
+.separator::after{
+    content:"";
+
+    height:1px;
+
+    flex:1;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.22)
+        );
+}
+
+.separator::after{
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.22),
+            transparent
+        );
+}
+
+.separator span{
+    font-family:"Orbitron",sans-serif;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    color:
+        rgba(255,255,255,.68);
+}
+
+
+/* =====================================================
+   LINKS
+===================================================== */
+
+.links{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:11px;
+}
+
+.link-card{
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    min-height:67px;
+
+    padding:
+        9px
+        14px
+        9px
+        10px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.035)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
+    border-radius:19px;
+
+    overflow:hidden;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.link-card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:60%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.09),
+            transparent
+        );
+
+    transform:skewX(-20deg);
+
+    transition:
+        left .6s ease;
+}
+
+.link-card:hover::before{
+    left:140%;
+}
+
+.link-card:hover{
+    transform:translateY(-3px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.13),
+            rgba(255,255,255,.055)
+        );
+
+    border-color:
+        rgba(255,255,255,.2);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.22);
+}
+
+.link-card:active{
+    transform:scale(.98);
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.social-icon{
+    position:relative;
+
+    z-index:1;
+
+    width:48px;
+    height:48px;
+
+    flex:0 0 48px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid rgba(255,255,255,.09);
+
+    overflow:hidden;
+}
+
+.social-icon img{
+    width:29px;
+    height:29px;
+
+    display:block;
+
+    object-fit:contain;
+}
+
+
+/* =====================================================
+   YOUTUBE ICON
+===================================================== */
+
+.youtube-icon{
+    background:
+        rgba(255,0,0,.08);
+}
+
+
+/* =====================================================
+   ZALO ICON
+===================================================== */
+
+.zalo-icon{
+    background:
+        rgba(0,132,255,.10);
+}
+
+.zalo-svg{
+    width:32px;
+    height:32px;
+
+    display:block;
+
+    flex-shrink:0;
+}
+
+
+/* =====================================================
+   WEBSITE ICON
+===================================================== */
+
+.website-icon{
+    background:
+        rgba(255,190,70,.08);
+}
+
+
+/* =====================================================
+   LINK CONTENT
+===================================================== */
+
+.link-content{
+    position:relative;
+
+    z-index:1;
+
+    flex:1;
+
+    min-width:0;
+
+    padding:
+        0
+        12px;
+}
+
+.link-title{
+    font-size:14px;
+
+    font-weight:800;
+
+    color:#fff;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+.link-description{
+    margin-top:3px;
+
+    font-size:10px;
+
+    color:
+        rgba(255,255,255,.45);
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+
+/* =====================================================
+   ARROW
+===================================================== */
+
+.arrow{
+    position:relative;
+
+    z-index:1;
+
+    width:30px;
+    height:30px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.07);
+
+    color:
+        rgba(255,255,255,.65);
+
+    font-size:17px;
+
+    transition:
+        transform .3s ease,
+        background .3s ease;
+}
+
+.link-card:hover .arrow{
+    transform:translateX(4px);
+
+    background:
+        rgba(255,255,255,.12);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+    margin-top:22px;
+
+    padding-top:17px;
+
+    border-top:
+        1px solid rgba(255,255,255,.08);
+
+    text-align:center;
+
+    font-size:9px;
+
+    letter-spacing:1.7px;
+
+    color:
+        rgba(255,255,255,.32);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:420px){
+
+    .main{
+        padding:
+            25px
+            12px;
+    }
+
+    .bio{
+        padding:
+            23px
+            14px
+            18px;
+
+        border-radius:25px;
+    }
+
+    .logo-box{
+        width:155px;
+        height:155px;
+
+        padding:5px;
+
+        margin-bottom:20px;
+    }
+
+    .bio-title{
+        font-size:25px;
+        letter-spacing:2px;
+    }
+
+    .game-info{
+        gap:8px;
+    }
+
+    .info-card{
+        padding:
+            12px
+            7px;
+    }
+
+    .link-card{
+        min-height:63px;
+    }
+
+    .social-icon{
+        width:45px;
+        height:45px;
+
+        flex-basis:45px;
+    }
+
+    .social-icon img{
+        width:27px;
+        height:27px;
+    }
+
+    .zalo-svg{
+        width:29px;
+        height:29px;
+    }
+
+    .loader-logo{
+        width:135px;
+        height:135px;
+    }
+
+    .loading-title{
+        font-size:23px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background">
+
+    <div class="bg bg1 active"></div>
+
+    <div class="bg bg2"></div>
+
+    <div class="bg bg3"></div>
+
+</div>
+
+
+<!-- PARTICLES -->
+
+<div
+    class="particles"
+    id="particles">
+</div>
+
+
+<!-- =====================================================
+     LOADING
+===================================================== -->
+
+<div
+    class="loader"
+    id="loader">
+
+    <img
+        class="loader-logo"
+        src="https://cdn.upanhlaylink.com/i/biyTTDUN.png"
+        alt="BUX BIO"
+    >
+
+    <div class="loading-title">
+        BUX BIO
+    </div>
+
+    <div
+        class="loading-status"
+        id="loadingStatus">
+
+        ĐANG KHỞI TẠO...
+
+    </div>
+
+    <div class="progress-wrap">
+
+        <div class="progress-bar">
+
+            <div
+                class="progress"
+                id="progress">
+            </div>
+
+        </div>
+
+        <div
+            class="percent"
+            id="percent">
+
+            1%
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main">
+
+    <section class="bio">
+
+
+        <!-- LOGO -->
+
+        <div class="logo-box">
+
+            <img
+                class="profile-logo"
+                src="https://cdn.upanhlaylink.com/i/biyTTDUN.png"
+                alt="BUX BIO Logo"
+            >
+
+        </div>
+
+
+        <!-- TITLE -->
+
+        <h1 class="bio-title">
+            BUX BIO
+        </h1>
+
+        <div class="bio-subtitle">
+            THÔNG TIN &amp; LIÊN KẾT
+        </div>
+
+
+        <!-- GAME INFO -->
+
+        <div class="game-info">
+
+            <div class="info-card">
+
+                <div class="info-label">
+                    Nickname
+                </div>
+
+                <div class="info-value">
+                    Bux.!
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-label">
+                    UID Game
+                </div>
+
+                <div class="info-value">
+                    7421825637
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DANH SÁCH -->
+
+        <div class="separator">
+
+            <span>
+                DANH SÁCH
+            </span>
+
+        </div>
+
+
+        <div class="links">
+
+
+            <!-- =================================================
+                 YOUTUBE
+            ================================================== -->
+
+            <a
+                class="link-card"
+                href="https://www.youtube.com/@buxtoine?si=5jJQedjO-2IxDbbk&zdlink=Uo9XRcHoRsba8ZeYOszjBcTlRsTiPIvXRcHoRsbaBdblTNHrOcKYB29fRtCYEdiYSsDePMrbNtLoR28w8dfXR6yjDJGqC30tDZOqEbmlN2yYB29XS71fP28w8ZKqD30mDpOsD29zVG"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <div class="social-icon youtube-icon">
+
+                    <img
+                        src="https://cdn.simpleicons.org/youtube/FF0000"
+                        alt="YouTube"
+                    >
+
+                </div>
+
+
+                <div class="link-content">
+
+                    <div class="link-title">
+                        YouTube
+                    </div>
+
+                    <div class="link-description">
+                        Kênh YouTube của Bux
+                    </div>
+
+                </div>
+
+
+                <div class="arrow">
+                    ›
+                </div>
+
+            </a>
+
+
+            <!-- =================================================
+                 ZALO
+            ================================================== -->
+
+            <a
+                class="link-card"
+                href="https://zalo.me/g/ngjnze275"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <div class="social-icon zalo-icon">
+
+                    <!-- ZALO SVG NHÚNG TRỰC TIẾP -->
+
+                    <svg
+                        class="zalo-svg"
+                        viewBox="0 0 48 48"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-label="Zalo"
+                    >
+
+                        <rect
+                            x="4"
+                            y="4"
+                            width="40"
+                            height="40"
+                            rx="12"
+                            fill="#0084FF"
+                        />
+
+                        <path
+                            d="M13 15.5h22c1.1 0 2 .9 2 2v13c0 1.1-.9 2-2 2H23l-6.5 4v-4H13c-1.1 0-2-.9-2-2v-13c0-1.1.9-2 2-2Z"
+                            fill="white"
+                        />
+
+                        <text
+                            x="24"
+                            y="27"
+                            text-anchor="middle"
+                            font-family="Arial,sans-serif"
+                            font-size="8"
+                            font-weight="900"
+                            fill="#0084FF"
+                        >
+                            Zalo
+                        </text>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="link-content">
+
+                    <div class="link-title">
+                        NHÓM AREX THÔNG BÁO FF
+                    </div>
+
+                    <div class="link-description">
+                        Nhóm Zalo thông báo Free Fire
+                    </div>
+
+                </div>
+
+
+                <div class="arrow">
+                    ›
+                </div>
+
+            </a>
+
+
+            <!-- =================================================
+                 WEBSITE
+            ================================================== -->
+
+            <a
+                class="link-card"
+                href="https://arexnetwork.vn"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <div class="social-icon website-icon">
+
+                    <img
+                        src="https://cdn.phototourl.com/free/2026-09-01-9e8750dc-2023-4879-8851-028b20c60730.jpg"
+                        alt="AREX Network"
+                    >
+
+                </div>
+
+
+                <div class="link-content">
+
+                    <div class="link-title">
+                        AREX NETWORK
+                    </div>
+
+                    <div class="link-description">
+                        Truy cập website
+                    </div>
+
+                </div>
+
+
+                <div class="arrow">
+                    ›
+                </div>
+
+            </a>
+
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+            POWERED BY BUX BIO
+        </div>
+
+
+    </section>
+
+</main>
+
+
+<script>
+
+/* =====================================================
+   LOADING 1% → 100%
+===================================================== */
+
+const loader =
+    document.getElementById("loader");
+
+const progress =
+    document.getElementById("progress");
+
+const percent =
+    document.getElementById("percent");
+
+const loadingStatus =
+    document.getElementById("loadingStatus");
+
+
+let current = 1;
+
+
+const loadingMessages = [
+
+    "ĐANG KHỞI TẠO...",
+
+    "ĐANG TẢI GIAO DIỆN...",
+
+    "ĐANG KẾT NỐI...",
+
+    "ĐANG CHUẨN BỊ BIO...",
+
+    "HOÀN TẤT..."
+
+];
+
+
+const loadingTimer =
+    setInterval(() => {
+
+        current++;
+
+
+        if(current > 100){
+            current = 100;
+        }
+
+
+        progress.style.width =
+            current + "%";
+
+
+        percent.textContent =
+            current + "%";
+
+
+        if(current < 25){
+
+            loadingStatus.textContent =
+                loadingMessages[0];
+
+        }
+        else if(current < 50){
+
+            loadingStatus.textContent =
+                loadingMessages[1];
+
+        }
+        else if(current < 75){
+
+            loadingStatus.textContent =
+                loadingMessages[2];
+
+        }
+        else if(current < 100){
+
+            loadingStatus.textContent =
+                loadingMessages[3];
+
+        }
+        else{
+
+            loadingStatus.textContent =
+                loadingMessages[4];
+
+        }
+
+
+        if(current >= 100){
+
+            clearInterval(loadingTimer);
+
+
+            setTimeout(() => {
+
+                loader.classList.add("hide");
+
+            },450);
+
+        }
+
+
+    },30);
+
+
+/* =====================================================
+   BACKGROUND SLIDER
+   6 GIÂY / ẢNH
+===================================================== */
+
+const backgrounds =
+    document.querySelectorAll(".bg");
+
+
+let bgIndex = 0;
+
+
+setInterval(() => {
+
+    backgrounds[bgIndex]
+        .classList
+        .remove("active");
+
+
+    bgIndex++;
+
+
+    if(bgIndex >= backgrounds.length){
+        bgIndex = 0;
+    }
+
+
+    backgrounds[bgIndex]
+        .classList
+        .add("active");
+
+
+},6000);
+
+
+/* =====================================================
+   PARTICLES
+===================================================== */
+
+const particleContainer =
+    document.getElementById("particles");
+
+
+for(let i = 0; i < 40; i++){
+
+    const particle =
+        document.createElement("span");
+
+
+    particle.className =
+        "particle";
+
+
+    particle.style.left =
+        Math.random() * 100 + "%";
+
+
+    particle.style.animationDuration =
+        (5 + Math.random() * 8) + "s";
+
+
+    particle.style.animationDelay =
+        (Math.random() * 8) + "s";
+
+
+    particle.style.opacity =
+        Math.random();
+
+
+    const size =
+        1 + Math.random() * 3;
+
+
+    particle.style.width =
+        size + "px";
+
+
+    particle.style.height =
+        size + "px";
+
+
+    particleContainer.appendChild(
+        particle
+    );
+
+}
+
+
+/* =====================================================
+   IMAGE FALLBACK
+===================================================== */
+
+document
+    .querySelectorAll("img")
+    .forEach(img => {
+
+        img.addEventListener(
+            "error",
+            () => {
+
+                img.style.opacity =
+                    "0.35";
+
+            }
+        );
+
+    });
+
+</script>
+
+</body>
+</html>

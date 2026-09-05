@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#05070d">
-<meta name="description" content="BUX BIO - Thông tin & liên kết">
+
 <title>BUX BIO Free Fire VN</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,6 +51,7 @@ body{
 .bg{
     position:absolute;
     inset:0;
+
     width:100%;
     height:100%;
 
@@ -59,6 +60,7 @@ body{
     background-repeat:no-repeat;
 
     opacity:0;
+
     transform:scale(1.06);
 
     transition:
@@ -68,6 +70,7 @@ body{
 
 .bg::after{
     content:"";
+
     position:absolute;
     inset:0;
 
@@ -76,7 +79,7 @@ body{
             180deg,
             rgba(3,5,12,.28),
             rgba(3,5,12,.58),
-            rgba(3,5,12,.86)
+            rgba(3,5,12,.88)
         );
 }
 
@@ -93,7 +96,7 @@ body{
 
 .bg2{
     background-image:url(
-        "https://cdn.wildflamestudio.com/common/web_event/official2.ff.garena.all/img/20228/b274c2a500d160d8e3247679e9b238f9.jpg"
+        "https://cdn.wildflamestudio.com/common/web_event/official2/dist/client/img/full_logo.969f536.png"
     );
 }
 
@@ -111,15 +114,20 @@ body{
 .particles{
     position:fixed;
     inset:0;
+
     z-index:1;
+
     pointer-events:none;
+
     overflow:hidden;
 }
 
 .particle{
     position:absolute;
+
     width:3px;
     height:3px;
+
     border-radius:50%;
 
     background:rgba(255,255,255,.7);
@@ -137,6 +145,7 @@ body{
         transform:
             translateY(110vh)
             scale(.3);
+
         opacity:0;
     }
 
@@ -152,6 +161,7 @@ body{
         transform:
             translateY(-15vh)
             scale(1);
+
         opacity:0;
     }
 
@@ -165,11 +175,14 @@ body{
 .loader{
     position:fixed;
     inset:0;
+
     z-index:9999;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     flex-direction:column;
 
     background:
@@ -302,6 +315,7 @@ body{
 
 .progress-wrap{
     width:min(300px,75vw);
+
     margin-top:22px;
 }
 
@@ -358,6 +372,7 @@ body{
 
 .main{
     position:relative;
+
     z-index:2;
 
     min-height:100vh;
@@ -404,6 +419,7 @@ body{
 
     from{
         opacity:0;
+
         transform:
             translateY(25px)
             scale(.97);
@@ -411,6 +427,7 @@ body{
 
     to{
         opacity:1;
+
         transform:
             translateY(0)
             scale(1);
@@ -420,7 +437,7 @@ body{
 
 
 /* =====================================================
-   LOGO CHÍNH - TRÒN
+   LOGO CHÍNH
 ===================================================== */
 
 .logo-box{
@@ -471,6 +488,7 @@ body{
     content:"";
 
     position:absolute;
+
     inset:3px;
 
     border:
@@ -541,6 +559,7 @@ body{
     font-family:"Orbitron",sans-serif;
 
     font-size:31px;
+
     font-weight:900;
 
     letter-spacing:3px;
@@ -564,17 +583,25 @@ body{
         shineText 3s linear infinite;
 }
 
+
+/* =====================================================
+   EVENT UPDATE TITLE
+===================================================== */
+
 .bio-subtitle{
-    margin-top:7px;
+    margin-top:8px;
 
     text-align:center;
 
-    font-size:13px;
+    font-size:12px;
 
-    color:
-        rgba(255,255,255,.58);
+    font-weight:800;
 
-    letter-spacing:1px;
+    color:rgba(255,255,255,.72);
+
+    letter-spacing:1.2px;
+
+    line-height:1.5;
 }
 
 
@@ -632,8 +659,7 @@ body{
 
     font-weight:700;
 
-    color:
-        rgba(255,255,255,.48);
+    color:rgba(255,255,255,.48);
 
     letter-spacing:1px;
 
@@ -708,8 +734,7 @@ body{
 
     letter-spacing:2px;
 
-    color:
-        rgba(255,255,255,.68);
+    color:rgba(255,255,255,.68);
 }
 
 
@@ -847,8 +872,8 @@ body{
 }
 
 .social-icon img{
-    width:29px;
-    height:29px;
+    width:30px;
+    height:30px;
 
     display:block;
 
@@ -857,7 +882,7 @@ body{
 
 
 /* =====================================================
-   YOUTUBE ICON
+   YOUTUBE
 ===================================================== */
 
 .youtube-icon{
@@ -867,31 +892,12 @@ body{
 
 
 /* =====================================================
-   ZALO ICON
+   TIKTOK
 ===================================================== */
 
-.zalo-icon{
+.tiktok-icon{
     background:
-        rgba(0,132,255,.10);
-}
-
-.zalo-svg{
-    width:32px;
-    height:32px;
-
-    display:block;
-
-    flex-shrink:0;
-}
-
-
-/* =====================================================
-   WEBSITE ICON
-===================================================== */
-
-.website-icon{
-    background:
-        rgba(255,190,70,.08);
+        rgba(255,255,255,.07);
 }
 
 
@@ -932,8 +938,7 @@ body{
 
     font-size:10px;
 
-    color:
-        rgba(255,255,255,.45);
+    color:rgba(255,255,255,.45);
 
     white-space:nowrap;
 
@@ -1041,6 +1046,11 @@ body{
         letter-spacing:2px;
     }
 
+    .bio-subtitle{
+        font-size:10px;
+        letter-spacing:.9px;
+    }
+
     .game-info{
         gap:8px;
     }
@@ -1067,11 +1077,6 @@ body{
         height:27px;
     }
 
-    .zalo-svg{
-        width:29px;
-        height:29px;
-    }
-
     .loader-logo{
         width:135px;
         height:135px;
@@ -1079,6 +1084,27 @@ body{
 
     .loading-title{
         font-size:23px;
+    }
+
+}
+
+
+/* =====================================================
+   EXTRA SMALL
+===================================================== */
+
+@media(max-width:340px){
+
+    .bio-subtitle{
+        font-size:9px;
+    }
+
+    .link-title{
+        font-size:13px;
+    }
+
+    .link-description{
+        font-size:9px;
     }
 
 }
@@ -1105,7 +1131,9 @@ body{
 </div>
 
 
-<!-- PARTICLES -->
+<!-- =====================================================
+     PARTICLES
+===================================================== -->
 
 <div
     class="particles"
@@ -1191,8 +1219,11 @@ body{
             BUX BIO
         </h1>
 
+
+        <!-- ĐÃ ĐỔI THEO YÊU CẦU -->
+
         <div class="bio-subtitle">
-            THÔNG TIN &amp; LIÊN KẾT
+            EVENT UPDATE FREE FIRE VN
         </div>
 
 
@@ -1248,6 +1279,7 @@ body{
 
             <a
                 class="link-card"
+                id="youtubeLink"
                 href="https://www.youtube.com/@buxtoine?si=5jJQedjO-2IxDbbk&zdlink=Uo9XRcHoRsba8ZeYOszjBcTlRsTiPIvXRcHoRsbaBdblTNHrOcKYB29fRtCYEdiYSsDePMrbNtLoR28w8dfXR6yjDJGqC30tDZOqEbmlN2yYB29XS71fP28w8ZKqD30mDpOsD29zVG"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -1284,94 +1316,22 @@ body{
 
 
             <!-- =================================================
-                 ZALO
+                 TIKTOK
             ================================================== -->
 
             <a
                 class="link-card"
-                href="https://zalo.me/g/ngjnze275"
+                id="tiktokLink"
+                href="https://www.tiktok.com/@buxtoine?_r=1&_t=ZS-99TbyOplBmG"
                 target="_blank"
                 rel="noopener noreferrer"
             >
 
-                <div class="social-icon zalo-icon">
-
-                    <!-- ZALO SVG NHÚNG TRỰC TIẾP -->
-
-                    <svg
-                        class="zalo-svg"
-                        viewBox="0 0 48 48"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-label="Zalo"
-                    >
-
-                        <rect
-                            x="4"
-                            y="4"
-                            width="40"
-                            height="40"
-                            rx="12"
-                            fill="#0084FF"
-                        />
-
-                        <path
-                            d="M13 15.5h22c1.1 0 2 .9 2 2v13c0 1.1-.9 2-2 2H23l-6.5 4v-4H13c-1.1 0-2-.9-2-2v-13c0-1.1.9-2 2-2Z"
-                            fill="white"
-                        />
-
-                        <text
-                            x="24"
-                            y="27"
-                            text-anchor="middle"
-                            font-family="Arial,sans-serif"
-                            font-size="8"
-                            font-weight="900"
-                            fill="#0084FF"
-                        >
-                            Zalo
-                        </text>
-
-                    </svg>
-
-                </div>
-
-
-                <div class="link-content">
-
-                    <div class="link-title">
-                        NHÓM AREX THÔNG BÁO FF
-                    </div>
-
-                    <div class="link-description">
-                        Nhóm Zalo thông báo Free Fire
-                    </div>
-
-                </div>
-
-
-                <div class="arrow">
-                    ›
-                </div>
-
-            </a>
-
-
-            <!-- =================================================
-                 WEBSITE
-            ================================================== -->
-
-            <a
-                class="link-card"
-                href="https://arexnetwork.vn"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-
-                <div class="social-icon website-icon">
+                <div class="social-icon tiktok-icon">
 
                     <img
-                        src="https://cdn.phototourl.com/free/2026-09-01-9e8750dc-2023-4879-8851-028b20c60730.jpg"
-                        alt="AREX Network"
+                        src="https://cdn.simpleicons.org/tiktok/FFFFFF"
+                        alt="TikTok"
                     >
 
                 </div>
@@ -1380,11 +1340,11 @@ body{
                 <div class="link-content">
 
                     <div class="link-title">
-                        AREX NETWORK
+                        TikTok
                     </div>
 
                     <div class="link-description">
-                        Truy cập website
+                        TikTok của Bux
                     </div>
 
                 </div>
@@ -1513,7 +1473,6 @@ const loadingTimer =
 
         }
 
-
     },30);
 
 
@@ -1524,7 +1483,6 @@ const loadingTimer =
 
 const backgrounds =
     document.querySelectorAll(".bg");
-
 
 let bgIndex = 0;
 
@@ -1606,6 +1564,77 @@ for(let i = 0; i < 40; i++){
 
 
 /* =====================================================
+   MỞ LINK
+===================================================== */
+
+function openSocialApp(app, webUrl){
+
+    /*
+       Trên Android/iOS, trình duyệt có thể quyết định
+       mở ứng dụng nếu ứng dụng tương ứng đã được cài.
+
+       Nếu không mở được ứng dụng, link web vẫn được
+       giữ làm đường dẫn dự phòng.
+    */
+
+    window.location.href = webUrl;
+
+}
+
+
+/* =====================================================
+   YOUTUBE
+===================================================== */
+
+const youtubeLink =
+    document.getElementById("youtubeLink");
+
+youtubeLink.addEventListener(
+    "click",
+    function(){
+
+        /*
+           Giữ URL YouTube chính thức.
+           Android/iOS có thể tự chuyển sang
+           ứng dụng YouTube nếu hệ thống đã liên kết.
+        */
+
+        this.setAttribute(
+            "target",
+            "_blank"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   TIKTOK
+===================================================== */
+
+const tiktokLink =
+    document.getElementById("tiktokLink");
+
+tiktokLink.addEventListener(
+    "click",
+    function(){
+
+        /*
+           Giữ URL TikTok chính thức.
+           Thiết bị sẽ ưu tiên ứng dụng TikTok
+           nếu hệ thống đã thiết lập App Links.
+        */
+
+        this.setAttribute(
+            "target",
+            "_blank"
+        );
+
+    }
+);
+
+
+/* =====================================================
    IMAGE FALLBACK
 ===================================================== */
 
@@ -1627,5 +1656,6 @@ document
 
 </script>
 
+
 </body>
-</html>
+               </html>

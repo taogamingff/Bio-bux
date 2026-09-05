@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#05070d">
+<meta name="theme-color" content="#000000">
 
-<title>BUX BIO Free Fire VN</title>
+<title>BUX BIO</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@ body{
     width:100%;
     min-height:100%;
     font-family:"Be Vietnam Pro",sans-serif;
-    background:#05070d;
+    background:#000;
     color:#fff;
     overflow-x:hidden;
 }
@@ -118,7 +118,6 @@ body{
     z-index:1;
 
     pointer-events:none;
-
     overflow:hidden;
 }
 
@@ -145,7 +144,6 @@ body{
         transform:
             translateY(110vh)
             scale(.3);
-
         opacity:0;
     }
 
@@ -161,7 +159,6 @@ body{
         transform:
             translateY(-15vh)
             scale(1);
-
         opacity:0;
     }
 
@@ -176,21 +173,17 @@ body{
     position:fixed;
     inset:0;
 
-    z-index:9999;
+    z-index:99999;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     flex-direction:column;
 
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(45,52,80,.38),
-            rgba(3,5,12,.98) 70%
-        );
+    /* NỀN ĐEN */
+    background:#000000;
+
+    isolation:isolate;
 
     transition:
         opacity .8s ease,
@@ -204,10 +197,38 @@ body{
 
 
 /* =====================================================
+   HIỆU ỨNG ÁNH SÁNG NHẸ TRÊN NỀN ĐEN
+===================================================== */
+
+.loader::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(45,45,45,.18) 0%,
+            rgba(10,10,10,.55) 35%,
+            rgba(0,0,0,.96) 70%,
+            #000 100%
+        );
+
+    z-index:-1;
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
    LOADING LOGO
 ===================================================== */
 
 .loader-logo{
+    position:relative;
+    z-index:2;
+
     width:145px;
     height:145px;
 
@@ -223,18 +244,19 @@ body{
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.98),
-            rgba(255,205,80,.72),
-            rgba(255,255,255,.90)
+            #ffffff,
+            #ffd45c,
+            #ffffff
         );
 
     border:
-        2px solid rgba(255,255,255,.88);
+        2px solid rgba(255,255,255,.9);
 
     box-shadow:
-        0 0 0 7px rgba(255,255,255,.045),
-        0 0 35px rgba(255,205,80,.25),
-        0 18px 55px rgba(0,0,0,.60);
+        0 0 0 7px rgba(255,255,255,.04),
+        0 0 35px rgba(255,205,80,.28),
+        0 0 80px rgba(255,205,80,.10),
+        0 18px 55px rgba(0,0,0,.9);
 
     animation:
         loaderLogo 3s ease-in-out infinite;
@@ -262,6 +284,9 @@ body{
 ===================================================== */
 
 .loading-title{
+    position:relative;
+    z-index:2;
+
     margin-top:25px;
 
     font-family:"Orbitron",sans-serif;
@@ -274,9 +299,9 @@ body{
     background:
         linear-gradient(
             90deg,
-            #fff,
+            #ffffff,
             #ffd76a,
-            #fff
+            #ffffff
         );
 
     background-size:200% auto;
@@ -298,7 +323,15 @@ body{
 
 }
 
+
+/* =====================================================
+   LOADING STATUS
+===================================================== */
+
 .loading-status{
+    position:relative;
+    z-index:2;
+
     margin-top:9px;
 
     font-size:12px;
@@ -314,6 +347,9 @@ body{
 ===================================================== */
 
 .progress-wrap{
+    position:relative;
+    z-index:2;
+
     width:min(300px,75vw);
 
     margin-top:22px;
@@ -327,10 +363,10 @@ body{
 
     border-radius:99px;
 
-    background:rgba(255,255,255,.11);
+    background:rgba(255,255,255,.10);
 
     border:
-        1px solid rgba(255,255,255,.08);
+        1px solid rgba(255,255,255,.10);
 }
 
 .progress{
@@ -342,18 +378,22 @@ body{
     background:
         linear-gradient(
             90deg,
-            #fff,
+            #ffffff,
             #ffd45c
         );
 
     box-shadow:
-        0 0 15px rgba(255,205,80,.7);
+        0 0 15px rgba(255,205,80,.8),
+        0 0 30px rgba(255,205,80,.25);
 
     transition:
         width .08s linear;
 }
 
 .percent{
+    position:relative;
+    z-index:2;
+
     margin-top:10px;
 
     text-align:center;
@@ -362,7 +402,7 @@ body{
 
     font-size:13px;
 
-    color:#fff;
+    color:#ffffff;
 }
 
 
@@ -463,9 +503,9 @@ body{
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.98),
-            rgba(255,205,80,.72),
-            rgba(255,255,255,.88)
+            #ffffff,
+            #ffd45c,
+            #ffffff
         );
 
     border:
@@ -478,8 +518,6 @@ body{
 
     overflow:hidden;
 
-    transform:translateZ(0);
-
     animation:
         logoFloat 4s ease-in-out infinite;
 }
@@ -488,7 +526,6 @@ body{
     content:"";
 
     position:absolute;
-
     inset:3px;
 
     border:
@@ -567,9 +604,9 @@ body{
     background:
         linear-gradient(
             90deg,
-            #fff,
+            #ffffff,
             #ffe083,
-            #fff
+            #ffffff
         );
 
     background-size:200% auto;
@@ -585,7 +622,7 @@ body{
 
 
 /* =====================================================
-   EVENT UPDATE TITLE
+   EVENT UPDATE FREE FIRE VN
 ===================================================== */
 
 .bio-subtitle{
@@ -739,7 +776,7 @@ body{
 
 
 /* =====================================================
-   LINKS
+   LINK CARDS
 ===================================================== */
 
 .links{
@@ -1220,7 +1257,7 @@ body{
         </h1>
 
 
-        <!-- ĐÃ ĐỔI THEO YÊU CẦU -->
+        <!-- EVENT UPDATE -->
 
         <div class="bio-subtitle">
             EVENT UPDATE FREE FIRE VN
@@ -1279,7 +1316,6 @@ body{
 
             <a
                 class="link-card"
-                id="youtubeLink"
                 href="https://www.youtube.com/@buxtoine?si=5jJQedjO-2IxDbbk&zdlink=Uo9XRcHoRsba8ZeYOszjBcTlRsTiPIvXRcHoRsbaBdblTNHrOcKYB29fRtCYEdiYSsDePMrbNtLoR28w8dfXR6yjDJGqC30tDZOqEbmlN2yYB29XS71fP28w8ZKqD30mDpOsD29zVG"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -1321,7 +1357,6 @@ body{
 
             <a
                 class="link-card"
-                id="tiktokLink"
                 href="https://www.tiktok.com/@buxtoine?_r=1&_t=ZS-99TbyOplBmG"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -1564,77 +1599,6 @@ for(let i = 0; i < 40; i++){
 
 
 /* =====================================================
-   MỞ LINK
-===================================================== */
-
-function openSocialApp(app, webUrl){
-
-    /*
-       Trên Android/iOS, trình duyệt có thể quyết định
-       mở ứng dụng nếu ứng dụng tương ứng đã được cài.
-
-       Nếu không mở được ứng dụng, link web vẫn được
-       giữ làm đường dẫn dự phòng.
-    */
-
-    window.location.href = webUrl;
-
-}
-
-
-/* =====================================================
-   YOUTUBE
-===================================================== */
-
-const youtubeLink =
-    document.getElementById("youtubeLink");
-
-youtubeLink.addEventListener(
-    "click",
-    function(){
-
-        /*
-           Giữ URL YouTube chính thức.
-           Android/iOS có thể tự chuyển sang
-           ứng dụng YouTube nếu hệ thống đã liên kết.
-        */
-
-        this.setAttribute(
-            "target",
-            "_blank"
-        );
-
-    }
-);
-
-
-/* =====================================================
-   TIKTOK
-===================================================== */
-
-const tiktokLink =
-    document.getElementById("tiktokLink");
-
-tiktokLink.addEventListener(
-    "click",
-    function(){
-
-        /*
-           Giữ URL TikTok chính thức.
-           Thiết bị sẽ ưu tiên ứng dụng TikTok
-           nếu hệ thống đã thiết lập App Links.
-        */
-
-        this.setAttribute(
-            "target",
-            "_blank"
-        );
-
-    }
-);
-
-
-/* =====================================================
    IMAGE FALLBACK
 ===================================================== */
 
@@ -1656,6 +1620,5 @@ document
 
 </script>
 
-
 </body>
-               </html>
+   </html>
